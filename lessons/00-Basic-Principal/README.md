@@ -23,3 +23,11 @@ Docker is a set of platform as a service products that use OS-level virtualizati
         - using `docker-compose` command
     How to start a stopped container? just using `docker start containername` or run again using `docker-compose`
     more command about container can be found on this link https://docs.docker.com/engine/reference/commandline/run/
+
+# Running Your First Container
+
+1. get the `httpd` images with `alpine` variant from the public dockerhub repo for images, other info about the Images can be found on official dockerhub repo https://hub.docker.com/_/httpd
+   > docker pull httpd:alpine
+2. run the container and bind it to port 8000 from your local, to port 80 on your container (because as said on the official dockerhub repo, the httpd will run on port 80 inside the container) 
+   > docker run --rm -p 8000:80 httpd:alpine
+3. f
