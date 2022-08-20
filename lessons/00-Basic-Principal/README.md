@@ -39,5 +39,6 @@ Docker is a set of platform as a service products that use OS-level virtualizati
 
     *notes*
    `--rm` arguments are using for auto removing container when it exited or stopped
+   
    `-p 8000:80` arguments are binding your local port 8000 to container port 80
 3. f
