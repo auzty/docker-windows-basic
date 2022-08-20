@@ -35,11 +35,17 @@ Docker is a set of platform as a service products that use OS-level virtualizati
 1. get the `httpd` images with `alpine` variant from the public dockerhub repo for images, other info about the Images can be found on official dockerhub repo https://hub.docker.com/_/httpd
    > docker pull httpd:alpine
 2. run the container and bind it to port 8000 from your local, to port 80 on your container (because as said on the official dockerhub repo, the httpd will run on port 80 inside the container) 
-   > docker run --rm -p 8000:80 httpd:alpine
+   > docker run --rm --name httpd-test -p 8000:80 httpd:alpine
 
     *notes* : 
 
    `--rm` arguments are using for auto removing container when it exited or stopped
 
+    `--name httpd-test` are arguments to naming the container using name `httpd-test`
+
    `-p 8000:80` arguments are binding your local port 8000 to container port 80
-3. f
+
+    for more information about other arguments, you can go to https://docs.docker.com/engine/reference/commandline/run/
+
+3. after running the docker container, you can go to http://localhost:8000 to check the result, 
+   ![its works](../../readme-resources/itworks.jpg)
