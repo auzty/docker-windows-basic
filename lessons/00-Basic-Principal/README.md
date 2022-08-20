@@ -37,8 +37,9 @@ Docker is a set of platform as a service products that use OS-level virtualizati
 2. run the container and bind it to port 8000 from your local, to port 80 on your container (because as said on the official dockerhub repo, the httpd will run on port 80 inside the container) 
    > docker run --rm -p 8000:80 httpd:alpine
 
-    *notes*
+    *notes* : 
+
    `--rm` arguments are using for auto removing container when it exited or stopped
-   
+
    `-p 8000:80` arguments are binding your local port 8000 to container port 80
 3. f
