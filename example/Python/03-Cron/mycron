@@ -1,0 +1,3 @@
+#
+* * * * * cd /myapp/ && /myapp/myshell.sh > /dev/null
+#
