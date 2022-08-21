@@ -17,5 +17,11 @@ Docker have a command that provide the persistency data
 ### Using host volume
 
 By adding `-v` command when run a container, we can mount host folder to inside container, for example, we want to mount html folder to htdocs inside the container (this still using our custom image httpd or official http are ok too)
-> docker run --rm -p --name httpd-test 8000:80 -v `pwd`/html:/usr/local/apache2/htdocs httpd:alpine
-The command `pwd` are 
+
+```bash
+docker run --rm -p --name httpd-test 8000:80 -v `pwd`/html:/usr/local/apache2/htdocs httpd:alpine
+```
+
+The command `` `pwd` `` are unix command to get current directory, or if this repo located at `/home/auzty/docker-windows-basic`  the full command will be 
+> docker run --rm -p --name httpd-test 8000:80 -v /home/auzyt/docker-windows-basic/lessons/02-Mounting/html:/usr/local/apache2/htdocs httpd:alpine
+
