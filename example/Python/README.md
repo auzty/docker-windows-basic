@@ -18,6 +18,8 @@ dir : `01-Simple-Python`
 
 *notes :* the container will be execute `simple.py` and then exited. 
 
+---
+
 ## 02 - Adding Pip
 
 This directory contains python script that require NumPy dependencies, you must install or add it to make it run properly
@@ -55,6 +57,8 @@ We need generating dependencies when dockerizing a python script (if needed)
 1. `pip install pipreqs`
 2. `pipreqs ./02-Adding-Pip` (this will generating `requirements.txt` inside the folder `02-Adding-Pip`)
 
+---
+
 ## 03 - Cron
 
 This directory contain example of adding cron to execute script using cron
@@ -88,3 +92,5 @@ file list of `03-Cron`
 - `myshell.sh` a simple bash script that will run python script `sample-2.py` and redirect the output to `/proc/1/fd/1` so the output can be viewed using `docker logs` function
 - `mycron` are cron syntax that will be execute `myshell.sh` every minutes and redirect the output to `/dev/null` (that's needed for handling the redirect output from `myshell.sh`). https://crontab.guru/ can give some information about the cron syntax
 - `sample-2.py` are python file that same file with `02-Adding-Pip/sample-2.py`
+
+---
