@@ -21,6 +21,9 @@ FROM httpd:alpine
 
 # ADD / COPY command will copy . (current directory) to /usr/local/apache2/htdocs
 ADD . /usr/local/apache2/htdocs
+
+# default command to run foreground
+CMD ["httpd-foreground"]
 ```
 
 *notes* : 
@@ -40,6 +43,14 @@ you can run and check after the build,
 
 The localhost:8000 should said `Hello There` instead `It works!` (default)
 
+## Important Part on Building Docker Images
+
+- Docker Images command should be running as foreground (not background), the `httpd-foreground` are scritp that will run `httpd` service on foreground. you can check the script on their official repo https://github.com/docker-library/httpd/blob/f3b7fd9c8ef59d1ad46c8b2a27df3e02d822834f/2.4/alpine/httpd-foreground
+- If Docker Images command are background service, the container will be stopped immediately after running.
+  > docker run --rm -p 8000:80 imagename:tagname echo hello
+  the command above will run one time, displaying `hello` and then the container will stopped
+- There are only one process per container (best practices), but if need more that one process, other software are needed http://supervisord.org/ (that will not cover in this repo)
+
 # Pushing Docker Image
 
 After building an images, and to distribute the images to other server, we need to push our images to registry repository ( you can create your own registry, or using public dockerhub registry or other)
@@ -50,4 +61,4 @@ The Image name format must be followed by the username, i.e., my username are `a
 > docker push auzty/imagename:tagname
 
 and then on the other server just need pull that images
-> docker pull auzzty/imagename:tagname
+> docker pull auzty/imagename:tagname
