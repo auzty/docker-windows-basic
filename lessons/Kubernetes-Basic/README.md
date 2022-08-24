@@ -57,3 +57,25 @@ and then check the exposing port using
 and access it from your localhost
 
 ![nginx](../../readme-resources/kubernetes-svc-nginx.jpg)
+
+
+## Command Notes
+
+1. `kubectl create deployment deploymentname `
+    this is will create a deployment with name `deploymentname`
+2. `kubectl create service nodeport nginx --tcp=80:80`
+    this is will create a service and expose it to kubernetes node
+3. `kubectl get pod`
+    will print a pod list
+4. `kubectl get deployment` / `kubectl get deploy`
+    will print a deployment list
+5. `kubectl get service` / `kubectl get svc`
+    will print a list of service 
+6. `kubectl delete service svcname`
+    will delete service with name `svcname`
+7. `kubectl delete pod podname`
+    will delete a pod with name `podname`
+8. `kubectl delete deploy deploymentname`
+    will delete a deployment with name `deploymentname`
+
+and there are many others command that can be found on their official documentations https://kubernetes.io/docs/concepts/ 
