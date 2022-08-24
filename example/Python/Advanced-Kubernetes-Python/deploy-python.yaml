@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello-py
+spec:
+  schedule: "* * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - image: auzty/testpy:latest
+            imagePullPolicy: Always
+            name: hello-pypod
+            command:
+            - /bin/bash
+            - -c
+            - date; echo Hello from the Kubernetes cluster > hello.txt
+            volumeMounts:
+            - mountPath: /myapp
+              name: pyvolume
+          restartPolicy: OnFailure
+          volumes:
+          - hostPath:
+              path: /run/desktop/mnt/host/c/Users/theau/Projects/samplepersistent
+              type: DirectoryOrCreate
+            name: pyvolume
